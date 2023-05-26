@@ -60,7 +60,6 @@ public class Parallelogram {
    * @param s2 Value of the length of another side of a parallelogram to be passed to the private constructor.
    * @param a1 Value of the size of one angle of a parallelogram to be passed to the private constructor.
    * @return parallelogram Returns the successfully created Parallelogram instance.
-   * @return null Returns no value if the number of instances have exceeded the limit.
    */
   public static synchronized Parallelogram getInstance(double s1, double s2, double a1) {
     if (count < LIMIT) {
@@ -80,7 +79,6 @@ public class Parallelogram {
    * 
    * @param other A pre-created Parallelogram instance to be passed to the private constructor
    * @return parallelogram Returns the successfully created Parallelogram instance.
-   * @return null Returns no value if the number of instances have exceeded the limit.
    */
   public static synchronized Parallelogram getInstance(Parallelogram other) {
     if (count < LIMIT) {
@@ -176,8 +174,8 @@ public class Parallelogram {
    * Method used to set the length of the two sides of the Parallelogram instance.
    * <p>
    * This method only changes the value of the two sides and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param s1
-   * @param s2
+   * @param s1 Value of the side s1
+   * @param s2 Value of the side s2
    */
   public void setSides(double s1, double s2) {
     while (s1 <= 0.0) {
@@ -198,7 +196,7 @@ public class Parallelogram {
    * Method used to set the length of the first side of the Parallelogram instance.
    * <p>
    * This method only changes the value of the one of the sides and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param s1
+   * @param s1 Length of the side s1
    */
   public void setSide1(double s1) {
     while (s1 <= 0.0) {
@@ -213,7 +211,7 @@ public class Parallelogram {
    * Method used to set the length of the second side of the Parallelogram instance.
    * <p>
    * This method only changes the value of the one of the sides and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param s2
+   * @param s2 Length of the side s2
    */
   public void setSide2(double s2) {
     while (s2 <= 0.0) {
@@ -228,8 +226,8 @@ public class Parallelogram {
    * Method used to set the size of the two angles of the Parallelogram instance.
    * <p>
    * This method only changes the value of the two angles and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param a1
-   * @param a2
+   * @param a1 Value of the angle a1
+   * @param a2 Value of the angle a2
    */
   public void setAngles(double a1, double a2) {
     while (a1 <= 0.0 || a1 >= 180) {
@@ -266,7 +264,7 @@ public class Parallelogram {
    * Method used to set the length of the second side of the Parallelogram instance.
    * <p>
    * This method only changes the value of the two angles and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param a2
+   * @param a2 Value of the angle a2
    */
   public void setAngle2(double a2) {
     while (a2 <= 0.0 || a2 >= 180) {
@@ -295,11 +293,8 @@ public class Parallelogram {
   }
 
   /**
-   * Method used to set the length of the second side of the Parallelogram instance.
-   * <p>
-   * This method only changes the value of the one of the sides and does not update the remaining values accordingly. The public method calculate() must be called following this method in order for the Parallelogram to be properly updated.
-   * @param s2
-   */
+   * Method used to get the information of the Parallelogram instance.
+  */
   public String toString() {
     String info = "This is the " + count + ((count%10==1 && count/10!=1) ? "st instance of the Parallelogram Class." : (count%10==2 && count/10!=1) ? "nd instance of the Parallelogram Class." : (count%10==3 && count/10!=1) ? "rd instance of the Parallelogram Class." : "th instance of the Parallelogram Class.")+(count==LIMIT ? " This is the last possible instance for the Parallelogram Class." : "");
 
