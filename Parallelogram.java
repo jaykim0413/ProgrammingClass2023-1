@@ -5,7 +5,8 @@ public class Parallelogram {
   private double side2;
   private double angle1;
   private double angle2;
-  private double diagonal;
+  private double diagonal1;
+  private double diagonal2;
   private double interAngle;
   private double area;
   private final Scanner sc = new Scanner(System.in);
@@ -108,11 +109,19 @@ public class Parallelogram {
   }
 
   /**
-   * Method used to get the length of the diagonal as a double value.
+   * Method used to get the length of the first diagonal line as a double value.
    * @return diagonal Returns the value of the instance variable "diagonal".
    */
-  public double getDiagonal() {
-    return this.diagonal;
+  public double getDiagonal1() {
+    return this.diagonal1;
+  }
+
+  /**
+   * Method used to get the length of the second diagonal line as a double value.
+   * @return diagonal Returns the value of the instance variable "diagonal".
+   */
+  public double getDiagonal2() {
+    return this.diagonal2;
   }
 
   /**
@@ -269,8 +278,12 @@ public class Parallelogram {
     this.angle2 = Math.toRadians(a2);
   }
 
-  private void setDiagonal(double d) {
-    this.diagonal = d;
+  private void setDiagonal1(double d) {
+    this.diagonal1 = d;
+  }
+
+  private void setDiagonal2(double d) {
+    this.diagonal2 = d;
   }
 
   private void setInterAngle(double iA) {
@@ -300,9 +313,10 @@ public class Parallelogram {
    * The calculate() method does not take in any arguments and only sets or updates the private instances' values.
    */
   public void calculate() {
-    setDiagonal(Math.sqrt(side1*side1+side2*side2-2.0*side1*side2*Math.cos(angle1)));
+    setDiagonal1(Math.sqrt(side1*side1+side2*side2-2.0*side1*side2*Math.cos(angle1)));
+    setDiagonal2(Math.sqrt(side1*side1+side2*side2-2.0*side1*side2*Math.cos(angle2)));
     setAngle2(Math.PI - angle1);
     setArea(Math.sin(angle1)*side1*side2);
-    setInterAngle(Math.asin(this.area*2.0/(diagonal*diagonal)));
+    setInterAngle(Math.asin(this.area*2.0/(diagonal1*diagonal2)));
   }
 }
